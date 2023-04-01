@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+/* eslint-disable react/prop-types */
 import './App.css';
+import React, { useState } from 'react';
+import P from 'prop-types';
+import { useCallback } from 'react';
+
+const Button = React.memo(function Button({ incrementButton }) {
+   console.log('filho');
+   return <button onClick={() => incrementButton(100)}>+</button>;
+});
+
+Button.protoTypes = {
+   incrementButton: P.func,
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [counter, setCounter] = useState(0);
+
+   const incrementCounter = useCallback((num) => {
+      setCounter((c) => c + num);
+   }, []);
+
+   console.log('pai');
+
+   return (
+      <div className="App">
+         <p>Teste 3</p>
+         <h1>C1:{counter}</h1>
+         <Button incrementButton={incrementCounter} />
+      </div>
+   );
 }
 
 export default App;
