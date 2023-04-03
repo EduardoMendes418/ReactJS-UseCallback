@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import P from 'prop-types';
 import './App.css';
 
-// New Component
+// New Component /
 const Post = ({ post }) => {
    console.log('filho');
    return (
