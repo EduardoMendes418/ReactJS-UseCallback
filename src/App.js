@@ -55,7 +55,7 @@ function App() {
                })
             );
          }, [posts])}
-         {posts.length <= 0 && <p>Ainda nao tem post</p>}
+         {posts.length <= 0 && <p>Ainda nao tem post espere 2min</p>}
       </div>
    );
 }
